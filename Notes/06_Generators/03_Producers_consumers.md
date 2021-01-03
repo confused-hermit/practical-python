@@ -20,7 +20,7 @@ def follow(f):
         ...
 
 # Consumer
-for line in follow(f):    # Consumes vale from `yield` above
+for line in follow(f):    # Consumes value from `yield` above
     ...
 ```
 
@@ -59,7 +59,7 @@ Consumer is a for-loop. It gets items and does something with them.
 *producer* &rarr; **processing** &rarr; **processing** &rarr; *consumer*
 
 ```python
-def processing(s:
+def processing(s):
     for item in s:
         ...
         yield newitem
@@ -78,7 +78,7 @@ def producer():
     yield item          # yields the item that is received by the `processing`
     ...
 
-def processing(s:
+def processing(s):
     for item in s:      # Comes from the `producer`
         ...
         yield newitem   # yields a new item
@@ -124,6 +124,7 @@ opening a file--it merely operates on a sequence of lines given
 to it as an argument.  Now, try this:
 
 ```
+>>> from follow import follow
 >>> lines = follow('Data/stocklog.csv')
 >>> ibm = filematch(lines, 'IBM')
 >>> for line in ibm:
